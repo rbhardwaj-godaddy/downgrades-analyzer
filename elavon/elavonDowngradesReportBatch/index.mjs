@@ -2,8 +2,9 @@ console.log("Loading function");
 import { s3, GetObjectCommand } from "@aws-sdk/client-s3";
 
 // Configs
-const kafkaBrokers = process.env.KAFKA_BROKERS;
-const kafkaTopic = process.env.KAFKA_TOPIC;
+const kafkaBrokers =
+  process.env.KAFKA_BROKERS || "kafka1.internal-ci.poynt.net:9092";
+const kafkaTopic = process.env.KAFKA_TOPIC || "DOWNGRADES-ANALYZER";
 const batchSize = process.env.BATCH_SIZE || 1000;
 
 export const handler = async (event, context) => {

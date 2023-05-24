@@ -1,9 +1,10 @@
 import { Kafka } from "kafkajs";
 
 // Configs
-const kafkaBrokers = process.env.KAFKA_BROKERS;
-const consumerTopic = process.env.CONSUMER_TOPIC;
-const producerTopic = process.env.PRODUCER_TOPIC;
+const kafkaBrokers =
+  process.env.KAFKA_BROKERS || "kafka1.internal-ci.poynt.net:9092";
+const consumerTopic = process.env.CONSUMER_TOPIC || "DOWNGRADES-ANALYZER";
+const producerTopic = process.env.PRODUCER_TOPIC || "TXN-DOWNGRADE-REPORT";
 const esNode = process.env.ELASTICSAERCH_NODE; //"http://your-elasticsearch-host:9200"
 const esTxnIndex = process.env.ELASTICSAERCH_TXN_INDEX;
 
